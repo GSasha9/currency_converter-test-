@@ -1,3 +1,4 @@
-import { currensy } from "./models/enums/currency";
+import { CurrencyCode } from "./models/types/currency_code";
+import { CurrencyData } from "./models/interfaces/currency_data";
 
-export { currensy }
+export { CurrencyCode, CurrencyData }
