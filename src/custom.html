@@ -3,9 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Currency Converter</title>
 </head>
 <body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Currency Converter</h1>
+                <input type="date" class="header__date">
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container main__container">
+                <div class="currency">
+                    <label for="currency__select">Choose Currency</label>
+                    <select name="currency" id="currency__select">
+                        <option value="byn">BYN</option>
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="cny">CNY</option>
+                        <option value="rub">RUB</option>
+                    </select>
+                </div>
+
+                <div class="amount">
+                    <label for="amount__input">Amount</label>
+                    <input type="text" class="amount__input" id="amount__input">
+                </div>
+
+                <div class="conversion">
+                    <label for="conversion__input"></label>
+                    <input type="text" class="conversion__input" id="conversion__input">
+                    <label for="conversion__input"></label>
+                    <input type="text" class="conversion__input" id="conversion__input">
+                    <label for="conversion__input"></label>
+                    <input type="text" class="conversion__input" id="conversion__input">
+                    <label for="conversion__input"></label>
+                    <input type="text" class="conversion__input" id="conversion__input">
+                </div>
+
+
+
+            </div>
+        </main>
+    </div>
 
 </body>
 </html>

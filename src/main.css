@@ -1,0 +1,31 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1440px;
+    width: inherit;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 145px;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+input[type="date"] {
+    font-family: inherit;
+    padding: 5px;
+}
+
+.main__container {
+    flex-direction: column;
+}
