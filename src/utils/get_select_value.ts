@@ -6,7 +6,6 @@ export function getSelectValue(): string {
 
     return;
   }
-  console.log(select.value);
 
   return select.value;
 }

@@ -2,15 +2,18 @@ import { renderPage } from "../layout/render-page";
 import { getDateValue, getSelectValue, setDate } from "./index";
 
 export function addListeners() {
-    setDate();
-    renderPage();
+  setDate();
+  renderPage();
   document
     .querySelector(".header__date")
     .addEventListener("change", getDateValue);
   document
     .querySelector(".currency__select")
     .addEventListener("change", getSelectValue);
-    document
+  document
     .querySelector(".currency__select")
     .addEventListener("change", renderPage);
+  document
+    .querySelector(".amount__input")
+    .addEventListener("keyup", renderPage);
 }
