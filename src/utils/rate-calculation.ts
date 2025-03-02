@@ -1,7 +1,7 @@
+
+
 export function rateCalculation(value: number): number | 0 {
   const amountInput = document.querySelector(".amount__input");
-
-  //const date = document.querySelector('.currency__select');
 
   if (
     !(amountInput instanceof HTMLInputElement) ||

@@ -21,6 +21,27 @@ html {
     gap: 1rem;
 }
 
+.header__message {
+    width: 260px;
+    font-style: italic;
+    font-size: .8rem;
+    color: red;
+    padding: 5px;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-delay: 2s;
+}
+
+@keyframes blink {
+    0% {
+        color: white;
+    }
+    100% {
+        color: red;
+    }
+}
+
 input[type="date"] {
     font-family: inherit;
     padding: 5px;

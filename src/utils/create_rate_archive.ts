@@ -15,7 +15,7 @@ function createRateArchive(obj: typeof currencyDetails) : Record<CurrencyCode, R
   
       const currencyArchive: Archive = {};
   
-      for (let i = 0; i < daysRange; i += 1) {
+      for (let i = 1; i <= daysRange; i += 1) {
         const date = new Date();
         date.setDate(today.getDate() - i);
   

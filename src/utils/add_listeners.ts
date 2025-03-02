@@ -8,6 +8,9 @@ export function addListeners() {
   document
     .querySelector(".header__date")
     .addEventListener("change", getDateValue);
+    document
+    .querySelector(".header__date")
+    .addEventListener("change",  renderPage);
   document
     .querySelector(".currency__select")
     .addEventListener("change", getSelectValue);

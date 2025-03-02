@@ -6,6 +6,5 @@ export function setDate() {
 
   const formattedDate = todaysDate.toISOString().split("T")[0];
 
-  console.log(formattedDate);
   headerDate.value = formattedDate;
 }

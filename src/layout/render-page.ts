@@ -1,6 +1,11 @@
 import { createElement, getSelectValue } from "../utils/index";
-import { currencyDetails, CurrencyCode } from "../components/index";
+import {
+  currencyDetails,
+  CurrencyCode,
+  generatedRateArchive,
+} from "../components/index";
 import { rateCalculation } from "../utils/rate-calculation";
+import { getDateValue } from "../utils/index";
 
 export function renderPage() {
   const conversionContainer = document.querySelector(".conversion");
@@ -11,30 +16,64 @@ export function renderPage() {
 
   const selectedCurrency: string = getSelectValue().toUpperCase();
 
-  Object.keys(currencyDetails).forEach((key) => {
-    const currencyKey = key as CurrencyCode;
+  const selectedDate = getDateValue();
 
-    if (currencyKey !== selectedCurrency) {
-      const processCurrency = currencyDetails[currencyKey];
+  console.log(`Дата из  счета ${selectedDate}`);
 
-      const selectedCurrencyObj =
-        currencyDetails[selectedCurrency as CurrencyCode];
+  const today = new Date();
 
-      const rate = selectedCurrencyObj.Rates[currencyKey as CurrencyCode];
+  if (selectedDate !== today.toISOString().split("T")[0]) {
+    Object.keys(generatedRateArchive).forEach((key) => {
+      const currencyKey = key as CurrencyCode;
+      if (currencyKey === selectedCurrency) {
+        const processCurrency = generatedRateArchive[currencyKey];
 
-      if (isNaN(rate)) {
-        console.log(`Invalid rate for ${selectedCurrency} in ${currencyKey}`);
-        return;
+        const archiveDate = processCurrency.archive[selectedDate];
+
+        Object.keys(archiveDate).forEach((el) => {
+          const processEl = el as CurrencyCode;
+          console.log(`Смотрю куда влезла назвала process el`);
+          console.log(processEl);
+
+          if (processEl !== selectedCurrency) {
+            const bbb = archiveDate[processEl];
+
+            createElement({
+              tag: "label",
+              parent: conversionContainer,
+              classes: ["conversion__input"],
+              textContent: `${processEl} - ${rateCalculation(bbb)}  `,
+            });
+          }
+        });
       }
+    });
+  } else {
+    Object.keys(currencyDetails).forEach((key) => {
+      const currencyKey = key as CurrencyCode;
 
-      createElement({
-        tag: "label",
-        parent: conversionContainer,
-        classes: ["conversion__input"],
-        textContent: `${processCurrency.Abbreviation} - ${rateCalculation(
-          rate
-        )}  `,
-      });
-    }
-  });
+      if (currencyKey !== selectedCurrency) {
+        const processCurrency = currencyDetails[currencyKey];
+
+        const selectedCurrencyObj =
+          currencyDetails[selectedCurrency as CurrencyCode];
+
+        const rate = selectedCurrencyObj.Rates[currencyKey as CurrencyCode];
+
+        if (isNaN(rate)) {
+          console.log(`Invalid rate for ${selectedCurrency} in ${currencyKey}`);
+          return;
+        }
+
+        createElement({
+          tag: "label",
+          parent: conversionContainer,
+          classes: ["conversion__input"],
+          textContent: `${processCurrency.Abbreviation} - ${rateCalculation(
+            rate
+          )}  `,
+        });
+      }
+    });
+  }
 }

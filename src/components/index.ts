@@ -4,5 +4,6 @@ import { CreateElementOptions } from "./models/interfaces/create_element_options
 import { currencyDetails } from "./constants/currency-details";
 import { Archive } from "./models/types/archive";
 import { RateArchive } from "./models/interfaces/rate-archive";
+import { generatedRateArchive } from "./constants/rate-archive";
 
-export { CurrencyCode, CurrencyData, CreateElementOptions, currencyDetails, Archive, RateArchive};
+export { CurrencyCode, CurrencyData, CreateElementOptions, currencyDetails, Archive, RateArchive, generatedRateArchive};
