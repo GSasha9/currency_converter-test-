@@ -1,6 +1,6 @@
 import { CurrencyData, CurrencyCode } from '../index';
 
-export const currencyDetails: Record<CurrencyCode, CurrencyData> = {
+export const CURRENCY_DETAILS: Record<CurrencyCode, CurrencyData> = {
     BYN: {
         Abbreviation: 'BYN',
         Name: 'Belarusian ruble',

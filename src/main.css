@@ -1,5 +1,6 @@
 html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
 }
 
 .wrapper {
@@ -24,7 +25,7 @@ html {
 .header__message {
     width: 260px;
     font-style: italic;
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: red;
     padding: 5px;
     animation-name: blink;

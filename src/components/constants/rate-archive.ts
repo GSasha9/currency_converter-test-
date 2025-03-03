@@ -1,6 +1,6 @@
-import { createRateArchive } from "../../utils/create_rate_archive";
-import { currencyDetails } from "./currency-details";
+import { createRateArchive } from "../../utils/create-rate-archive";
+import { CURRENCY_DETAILS } from "./currency-details";
 
-const generatedRateArchive = createRateArchive(currencyDetails);
+const GENERATED_RATE_ARCHIVE = createRateArchive(CURRENCY_DETAILS);
 
-export { generatedRateArchive };
+export { GENERATED_RATE_ARCHIVE };

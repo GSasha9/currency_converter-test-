@@ -1,5 +1,3 @@
-import { createElement } from "./create_element";
-
 function getDateValue() : string {
   const headerMessage = document.querySelector('.header__message');
 

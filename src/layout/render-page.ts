@@ -1,8 +1,8 @@
 import { createElement, getSelectValue } from "../utils/index";
 import {
-  currencyDetails,
+  CURRENCY_DETAILS,
   CurrencyCode,
-  generatedRateArchive,
+  GENERATED_RATE_ARCHIVE,
 } from "../components/index";
 import { rateCalculation } from "../utils/rate-calculation";
 import { getDateValue } from "../utils/index";
@@ -18,22 +18,18 @@ export function renderPage() {
 
   const selectedDate = getDateValue();
 
-  console.log(`Дата из  счета ${selectedDate}`);
-
   const today = new Date();
 
   if (selectedDate !== today.toISOString().split("T")[0]) {
-    Object.keys(generatedRateArchive).forEach((key) => {
+    Object.keys(GENERATED_RATE_ARCHIVE).forEach((key) => {
       const currencyKey = key as CurrencyCode;
       if (currencyKey === selectedCurrency) {
-        const processCurrency = generatedRateArchive[currencyKey];
+        const processCurrency = GENERATED_RATE_ARCHIVE[currencyKey];
 
         const archiveDate = processCurrency.archive[selectedDate];
 
         Object.keys(archiveDate).forEach((el) => {
           const processEl = el as CurrencyCode;
-          console.log(`Смотрю куда влезла назвала process el`);
-          console.log(processEl);
 
           if (processEl !== selectedCurrency) {
             const bbb = archiveDate[processEl];
@@ -49,14 +45,14 @@ export function renderPage() {
       }
     });
   } else {
-    Object.keys(currencyDetails).forEach((key) => {
+    Object.keys(CURRENCY_DETAILS).forEach((key) => {
       const currencyKey = key as CurrencyCode;
 
       if (currencyKey !== selectedCurrency) {
-        const processCurrency = currencyDetails[currencyKey];
+        const processCurrency = CURRENCY_DETAILS[currencyKey];
 
         const selectedCurrencyObj =
-          currencyDetails[selectedCurrency as CurrencyCode];
+          CURRENCY_DETAILS[selectedCurrency as CurrencyCode];
 
         const rate = selectedCurrencyObj.Rates[currencyKey as CurrencyCode];
 
