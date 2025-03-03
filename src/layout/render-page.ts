@@ -21,6 +21,7 @@ export function renderPage() {
   const today = new Date();
 
   if (selectedDate !== today.toISOString().split("T")[0]) {
+
     Object.keys(GENERATED_RATE_ARCHIVE).forEach((key) => {
       const currencyKey = key as CurrencyCode;
       if (currencyKey === selectedCurrency) {
@@ -28,17 +29,28 @@ export function renderPage() {
 
         const archiveDate = processCurrency.archive[selectedDate];
 
+        if (!archiveDate) {
+          console.warn('No data in the archive');
+          createElement({
+            tag: "label",
+            parent: conversionContainer,
+            classes: ["conversion__input"],
+            textContent: `Enter amount for conversion and press Enter`,
+          });
+          return;
+        }
+
         Object.keys(archiveDate).forEach((el) => {
           const processEl = el as CurrencyCode;
 
           if (processEl !== selectedCurrency) {
-            const bbb = archiveDate[processEl];
+            const rate = archiveDate[processEl];
 
             createElement({
               tag: "label",
               parent: conversionContainer,
               classes: ["conversion__input"],
-              textContent: `${processEl} - ${rateCalculation(bbb)}  `,
+              textContent: `${processEl} - ${rateCalculation(rate)}  `,
             });
           }
         });
@@ -67,7 +79,7 @@ export function renderPage() {
           classes: ["conversion__input"],
           textContent: `${processCurrency.Abbreviation} - ${rateCalculation(
             rate
-          )}  `,
+          )}    `,
         });
       }
     });

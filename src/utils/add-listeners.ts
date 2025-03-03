@@ -6,10 +6,10 @@ export function addListeners() {
   setDate();
   renderPage();
   document
-    .querySelector(".header__date")
+    .querySelector(".header__date-input")
     .addEventListener("change", getDateValue);
     document
-    .querySelector(".header__date")
+    .querySelector(".header__date-input")
     .addEventListener("change",  renderPage);
   document
     .querySelector(".currency__select")

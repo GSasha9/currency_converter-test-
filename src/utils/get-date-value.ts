@@ -3,11 +3,11 @@ function getDateValue() : string {
 
   headerMessage.textContent = '';
 
-  const dateInput = document.querySelector(".header__date");
+  const dateInput = document.querySelector(".header__date-input");
 
   if (!(dateInput instanceof HTMLInputElement)) {
     console.warn(
-      "Element '.header__date' not found."
+      "Element '.header__date-input' not found."
     );
 
     return null;
@@ -29,6 +29,12 @@ function getDateValue() : string {
     headerMessage.textContent = "The rates are only available for the last two weeks";
     setTimeout(function(){
       dateInput.value = new Date((periodEnd - daysRange) * mlsToDays).toISOString().split('T')[0];
+      headerMessage.textContent = '';
+    },5000)
+  } else if (periodEnd - periodStart < 0) {
+    headerMessage.textContent = "The rates are only available for the last two weeks";
+    setTimeout(function(){
+      dateInput.value = new Date(periodEnd * mlsToDays).toISOString().split('T')[0];
       headerMessage.textContent = '';
     },5000)
   }

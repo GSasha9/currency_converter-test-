@@ -1,5 +1,5 @@
 export function setDate() {
-  const headerDate = document.querySelector(".header__date");
+  const headerDate = document.querySelector(".header__date-input");
 
   if (!(headerDate instanceof HTMLInputElement)) return;
   const todaysDate = new Date();
