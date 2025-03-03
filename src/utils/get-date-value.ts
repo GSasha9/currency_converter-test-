@@ -12,6 +12,7 @@ function getDateValue() : string {
 
     return null;
   }
+
   const selectedDate = new Date(dateInput.value);
 
   const today = new Date();
@@ -24,10 +25,10 @@ function getDateValue() : string {
 
   const daysRange = 14;
 
-  if(periodEnd - periodStart > daysRange || periodEnd - periodStart < 0) {
-    headerMessage.textContent = 'The date should be less than two weeks';
-    dateInput.value = new Date((periodEnd - daysRange) * mlsToDays).toISOString().split('T')[0];
+  if(periodEnd - periodStart > daysRange) {
+    headerMessage.textContent = "The rates are only available for the last two weeks";
     setTimeout(function(){
+      dateInput.value = new Date((periodEnd - daysRange) * mlsToDays).toISOString().split('T')[0];
       headerMessage.textContent = '';
     },5000)
   }

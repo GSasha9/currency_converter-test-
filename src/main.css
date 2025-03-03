@@ -20,10 +20,15 @@ html {
     padding: 50px 145px;
     flex-wrap: wrap;
     gap: 1rem;
+    position: relative;
+}
+
+.header__title {
+    font-size: 2rem;
 }
 
 .header__message {
-    width: 260px;
+    width: 180px;
     font-style: italic;
     font-size: 0.8rem;
     color: red;
@@ -32,6 +37,9 @@ html {
     animation-iteration-count: infinite;
     animation-duration: 4s;
     animation-delay: 2s;
+    position: absolute;
+    right: 2rem;
+    top: 5rem;
 }
 
 @keyframes blink {
